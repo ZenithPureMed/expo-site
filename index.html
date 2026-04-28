@@ -157,20 +157,12 @@ nav{
 @media(max-width:620px){.who-outer{padding:0 20px 80px;}}
 .who-inner{
   background:var(--navy);border-radius:24px;overflow:hidden;
-  display:grid;grid-template-columns:1fr 1fr;
+  padding:72px 52px;text-align:center;
 }
-@media(max-width:720px){.who-inner{grid-template-columns:1fr;}}
-.who-txt{padding:60px 52px;}
-@media(max-width:720px){.who-txt{padding:40px 28px;}}
+@media(max-width:720px){.who-inner{padding:48px 28px;}}
 .who-ey{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:12px;}
-.who-h{font-size:clamp(24px,3.5vw,34px);font-weight:700;color:#fff;letter-spacing:-.02em;margin-bottom:16px;}
-.who-p{font-size:16px;color:rgba(255,255,255,.55);line-height:1.78;font-weight:300;}
-.who-img-ph{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  min-height:260px;background:rgba(255,255,255,.04);
-  font-size:13px;color:rgba(255,255,255,.22);letter-spacing:.03em;text-align:center;padding:28px;gap:8px;
-}
-.who-img-ph small{font-size:11px;color:rgba(255,255,255,.13);display:block;}
+.who-h{font-size:clamp(24px,3.5vw,36px);font-weight:700;color:#fff;letter-spacing:-.02em;margin-bottom:18px;}
+.who-p{font-size:17px;color:rgba(255,255,255,.55);line-height:1.8;font-weight:300;max-width:620px;margin:0 auto;}
 
 /* ════════════════════════════════════ */
 /* OVERVIEW                            */
@@ -419,18 +411,11 @@ footer span{color:var(--navy);font-weight:500;}
   <!-- Who We Are -->
   <div class="who-outer fade">
     <div class="who-inner">
-      <div class="who-txt">
-        <span class="who-ey">Who We Are</span>
-        <h2 class="who-h">Engineering a better way to deliver medicine</h2>
-        <p class="who-p">
-          <!-- EDIT: Replace with your team background -->
-          We are a team of Biomedical Engineers at Stevens Institute of Technology, combining principles across biomedical engineering, computer science, and electrical engineering to solve a real clinical challenge in subcutaneous drug delivery.
-        </p>
-      </div>
-      <div class="who-img-ph">
-        [ Team photo ]
-        <small>Replace with &lt;img src="images/team.jpg"&gt;</small>
-      </div>
+      <span class="who-ey">Who We Are</span>
+      <h2 class="who-h">Engineering a better way to deliver medicine</h2>
+      <p class="who-p">
+        We are a team of Biomedical Engineers at Stevens Institute of Technology, combining principles across biomedical engineering, computer science, and electrical engineering to solve a real clinical challenge in subcutaneous drug delivery.
+      </p>
     </div>
   </div>
 
