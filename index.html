@@ -493,7 +493,7 @@ footer span{color:var(--navy);font-weight:500;}
       <div class="sys-blk fade">
         <div class="sys-blk-hd">Adaptive Flow Profile (AFP) Algorithm</div>
         <p style="font-size:16px;color:var(--t2);margin-bottom:24px;line-height:1.7;font-weight:300;">
-          The AFP algorithm reads real-time pressure sensor data and modulates actuator speed across four delivery zones — slowing under higher resistance and stopping automatically when a safety threshold is exceeded.
+          The AFP algorithm reads real-time pressure sensor data and modulates actuator speed across four defined delivery zones, adjusting delivery speed based on severity of resistance and stopping automatically when a safety threshold is exceeded.
         </p>
         <div class="afp-wrap">
           <table class="afp-tbl">
@@ -508,22 +508,22 @@ footer span{color:var(--navy);font-weight:500;}
               <tr>
                 <td class="z-lbl">Zone 1</td>
                 <td><span class="spd-pill s-fast">Fast</span></td>
-                <td>Minimal tissue resistance detected — full-speed advance</td>
+                <td>Minimal tissue resistance detected: full-speed advance</td>
               </tr>
               <tr>
                 <td class="z-lbl">Zone 2</td>
                 <td><span class="spd-pill s-med">Medium</span></td>
-                <td>Moderate resistance present — controlled advance</td>
+                <td>Moderate resistance present: controlled advance</td>
               </tr>
               <tr>
                 <td class="z-lbl">Zone 3</td>
                 <td><span class="spd-pill s-slow">Slow</span></td>
-                <td>Elevated resistance — cautious step advance</td>
+                <td>Elevated resistance: cautious step advance</td>
               </tr>
               <tr class="stop">
                 <td class="z-lbl">Safety Stop</td>
                 <td><span class="spd-pill s-stop">Stop</span></td>
-                <td>Force threshold exceeded — delivery halted immediately</td>
+                <td>Force threshold exceeded: delivery halted immediately</td>
               </tr>
             </tbody>
           </table>
@@ -532,9 +532,9 @@ footer span{color:var(--navy);font-weight:500;}
 
       <!-- MATLAB Simulation -->
       <div class="sys-blk fade">
-        <div class="sys-blk-hd">Simulation Data — Tissue Model Figures</div>
+        <div class="sys-blk-hd">Simulation Data: Tissue Model Figures</div>
         <p style="font-size:16px;color:var(--t2);margin-bottom:24px;line-height:1.7;font-weight:300;">
-          MATLAB simulation outputs for each of the four tissue models used in AFP validation simulation.
+          Simulations were developed in MATLAB to showcase AFP and how it interacts with both compliant (low resistance) tissue, and resistive (high resistance) tissue. Each model showcases the live pressure being experienced by the tissue, and the speed of the injection operating in unison.
         </p>
         <div class="g4">
           <div>
@@ -542,14 +542,14 @@ footer span{color:var(--navy);font-weight:500;}
               <div class="ic">📊</div>
               Tissue Model 1
             </div>
-            <p class="img-cap">Tissue Model 1 — [name]</p>
+            <p class="img-cap">Tissue Model 1: [ Compliant Tissue During Injection ]</p>
           </div>
           <div>
             <div class="img-slot" style="min-height:190px;">
               <div class="ic">📊</div>
               Tissue Model 2
             </div>
-            <p class="img-cap">Tissue Model 2 — [name]</p>
+            <p class="img-cap">Tissue Model 2 — [ Resistive Tissue During Injection ]</p>
           </div>
           <div>
             <div class="img-slot" style="min-height:190px;">
