@@ -236,7 +236,7 @@ nav{
   letter-spacing:-.01em;display:flex;align-items:center;gap:8px;
 }
 .vt-title::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;}
-.vt-wrap{border-radius:var(--r);overflow:hidden;box-shadow:var(--shsm);border:1px solid var(--border);}
+.vt-wrap{border-radius:var(--r);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.09);border:1px solid var(--border);}
 .vtbl{width:100%;border-collapse:collapse;font-size:14px;}
 .vtbl th{
   text-align:left;padding:12px 18px;background:var(--bg2);
@@ -254,10 +254,10 @@ nav{
 .team-g{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 .team-card{
   background:var(--white);border-radius:var(--r);padding:28px 20px;text-align:center;
-  box-shadow:var(--shsm);border:1px solid var(--border);
+  box-shadow:0 4px 24px rgba(0,0,0,0.09);border:1px solid var(--border);
   transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;
 }
-.team-card:hover{transform:translateY(-4px);box-shadow:var(--shlg);}
+.team-card:hover{transform:translateY(-4px);box-shadow:0 8px 36px rgba(0,0,0,0.13);}
 .t-av{
   width:72px;height:72px;border-radius:50%;background:var(--teal-lt);
   border:2px solid var(--teal-bd);margin:0 auto 14px;
@@ -297,10 +297,10 @@ nav{
 
 .ms-card{
   background:var(--white);border-radius:var(--rsm);padding:20px 18px;
-  box-shadow:var(--shsm);border:1px solid var(--border);
+  box-shadow:0 4px 24px rgba(0,0,0,0.09);border:1px solid var(--border);
   transition:box-shadow .25s,transform .25s;
 }
-.ms-card:hover{box-shadow:var(--sh);transform:translateY(-2px);}
+.ms-card:hover{box-shadow:0 8px 36px rgba(0,0,0,0.13);transform:translateY(-2px);}
 .ms-card.now-c{border-color:rgba(240,165,0,.22);background:#FFFDF5;}
 .ms-card.next-c{opacity:.72;}
 .ms-ch{display:flex;align-items:center;gap:7px;margin-bottom:9px;}
@@ -439,17 +439,17 @@ footer span{color:var(--navy);font-weight:500;}
 
       <div class="ov-card fade">
         <h3>Clinical Background</h3>
-        <div class="ph-box">→ Self-administered subcutaneous injections are frequently associated with high rates of patient non-adherence due to needle phobia and pain caused by uncontrolled, high speed injection delivery. Conventional autoinjectors rely on a strict mechanical design that utilizes a spring, delivering the medication at a fixed rate. This process cannot adapt to the patients tissue resistance leading to non-uniform delivery, incosnistent dosing, and local damage. </div>
+        <div class="ph-box">→ Self-administered subcutaneous injections are frequently associated with high rates of patient non-adherence due to needle phobia and pain caused by uncontrolled, high speed injection delivery. Conventional autoinjectors rely on a strict mechanical design that utilizes a spring, delivering the medication at a fixed rate. This process cannot adapt to the patients tissue resistance leading to non-uniform delivery, inconsistent dosing, and local damage. </div>
       </div>
 
       <div class="ov-card fade">
         <h3>Problem Statement</h3>
-        <div class="ph-box">→ Over 37 million Americans require regular subcutaneous therapy for metabolic disorders, yet the market is dominated by a "one-size-fits-all" delivery ssytemn that fails to address specific phyisological differences amongst patients. Existing solutions also create significant medical waste and lacksa variety of feedback mechanisms that would ensure a more consistent, pain minimzed injection exprience for all patients. </div>
+        <div class="ph-box">→ Over 37 million Americans require regular subcutaneous therapy for metabolic disorders, yet the market is dominated by a "one-size-fits-all" delivery system that fails to address specific physiological differences amongst patients. Existing solutions also create significant medical waste and lacks a variety of feedback mechanisms that would ensure a more consistent, pain minimized injection experience for all patients. </div>
       </div>
 
       <div class="ov-card fade">
         <h3>Our Approach</h3>
-        <div class="ph-box">→ At PureMed we designed an autoinjector known as the Zenith. This electromechanical autoinjector operates as closed loop feedback control system that monitors real-time pressure feedback readings to modulate a motor dreiven adaptive flow profile during the injection. By integrating precise mechatronics, this device maintains optimal delivery speeds regardless of the tissue resistance, with validated performance data collected through mechanical testing and analysis. </div>
+        <div class="ph-box">→ At PureMed we designed an autoinjector known as the Zenith. This electromechanical autoinjector operates as closed loop feedback control system that monitors real-time pressure feedback readings to modulate a motor driven adaptive flow profile during the injection. By integrating precise mechatronics, this device maintains optimal delivery speeds regardless of the tissue resistance, with validated performance data collected through mechanical testing and analysis. </div>
       </div>
     </div>
   </section>
@@ -752,7 +752,7 @@ footer span{color:var(--navy);font-weight:500;}
             <div class="ms-ch"><span class="ms-pill done">Completed</span></div>
             <div class="ms-ct">Device Concept &amp; CAD Development</div>
             <div class="ms-cb">
-              <!-- EDIT --> Initial component selection, housing design, syringe vs catridge interface, and CAD modeling.
+              <!-- EDIT --> Initial component selection, housing design, syringe vs cartridge interface, and CAD modeling.
             </div>
           </div>
 
@@ -760,7 +760,7 @@ footer span{color:var(--navy);font-weight:500;}
             <div class="ms-ch"><span class="ms-pill done">Completed</span></div>
             <div class="ms-ct">Hardware Assembly &amp; Firmware Setup</div>
             <div class="ms-cb">
-              <!-- EDIT -->  Design wiring, electical integration and setup, and initial firmware.
+              <!-- EDIT -->  Design wiring, electrical integration and setup, and initial firmware.
             </div>
           </div>
 
@@ -780,14 +780,14 @@ footer span{color:var(--navy);font-weight:500;}
             <div class="ms-cb">AFP Algorithm was tested to determine if the operable zones functioned consistently under varying levels of resistance, and elapsed time.</div>
             <div class="ms-find">
               <strong>Key Finding</strong>
-             Results proved that the algorithm's subclasses each function consistently, under high and low levels of introduced resistance to mimick worldly subcutaneous delivery.
+             Results proved that the algorithm's subclasses each function consistently, under high and low levels of introduced resistance to mimic worldly subcutaneous delivery.
             </div>
           </div>
 
            <div class="ms-card">
             <div class="ms-ch"><span class="ms-pill done">Completed</span></div>
             <div class="ms-ct">BLGF Testing — Syringe and Cartridge Baselines </div>
-            <div class="ms-cb">Break-loose and glide force testing across multiple iterations establishing syringe and catridge reference values.</div>
+            <div class="ms-cb">Break-loose and glide force testing across multiple iterations establishing syringe and cartridge reference values.</div>
             <div class="ms-find">
               <strong>Key Finding</strong>
              Baseline testing values registered consistent validated results that show high promise in regards to device operation.
@@ -806,7 +806,7 @@ footer span{color:var(--navy);font-weight:500;}
             <div class="ms-ch"><span class="ms-pill now">In Progress</span></div>
             <div class="ms-ct">System Architecture Validation &amp; Verification</div>
             <div class="ms-cb">
-              <!-- EDIT --> Drop testing, AFP functionality verification and dose accuracy testing data is being analyzed and furhter test protocols are in development. 
+              <!-- EDIT --> Drop testing, AFP functionality verification and dose accuracy testing data is being analyzed and further test protocols are in development. 
             </div>
           </div>
 
