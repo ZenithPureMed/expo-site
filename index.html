@@ -267,7 +267,7 @@ nav{
 .t-num{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:4px;}
 .t-nm{font-size:17px;font-weight:600;color:var(--t1);margin-bottom:3px;letter-spacing:-.01em;}
 .t-rl{font-size:13px;color:var(--t3);margin-bottom:14px;}
-.t-foc{background:var(--bg2);border-radius:10px;padding:12px 14px;text-align:left;margin-bottom:14px;}
+.t-foc{background:var(--white);border-radius:10px;padding:12px 14px;text-align:left;margin-bottom:14px;box-shadow:0 4px 24px rgba(0,0,0,0.09);border:1px solid var(--border);}
 .t-foc strong{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);display:block;margin-bottom:5px;}
 .t-foc p{font-size:13px;color:var(--t2);line-height:1.55;}
 .li-btn{
@@ -329,6 +329,9 @@ nav{
 .tm-card:hover{box-shadow:0 8px 36px rgba(0,0,0,0.13);transform:translateY(-2px);}
 .tm-card img{width:100%;height:280px;object-fit:contain;background:#fff;display:block;}
 .tm-cap{font-size:13px;font-weight:500;color:var(--t2);text-align:center;padding:14px 16px;}
+
+/* Pass pill */
+.pass-pill{display:inline-block;font-size:12px;font-weight:600;padding:3px 12px;border-radius:100px;background:#E8F6F0;color:#1E8A5E;}
 
 /* ── FOOTER ─────────────────────────────── */
 footer{background:var(--bg2);border-top:1px solid var(--border);padding:30px 0;text-align:center;}
@@ -572,11 +575,11 @@ footer span{color:var(--navy);font-weight:500;}
                 <tr><th>Test #</th><th>Drop Height (feet)</th><th>Surface</th><th>Device Status</th><th>Notes</th></tr>
               </thead>
               <tbody>
-                <tr class="ph"><td>1</td><td>5 ft</td><td>Table/Nightstand</td><td>Functional</td><td>[ PASS ]</td></tr>
-                <tr class="ph"><td>2</td><td>5 ft</td><td>Table/Nightstand</td><td>Functional</td><td>[ PASS ]</td></tr>
-                <tr class="ph"><td>3</td><td>5 ft</td><td>Table/Nightstand</td><td>Functional</td><td>[ PASS ]</td></tr>
-                <tr class="ph"><td>4</td><td>5 ft</td><td>Table/Nightstand</td><td>Functional</td><td>[ PASS ]</td></tr>
-                <tr class="ph"><td>5</td><td>5 ft</td><td>Table/Nightstand</td><td>Functional</td><td>[ PASS ]</td></tr>
+                <tr class="ph"><td>1</td><td>5 ft</td><td>Table/Nightstand</td><td>Functional</td><td><span class="pass-pill">PASS</span></td></tr>
+                <tr class="ph"><td>2</td><td>5 ft</td><td>Table/Nightstand</td><td>Functional</td><td><span class="pass-pill">PASS</span></td></tr>
+                <tr class="ph"><td>3</td><td>5 ft</td><td>Table/Nightstand</td><td>Functional</td><td><span class="pass-pill">PASS</span></td></tr>
+                <tr class="ph"><td>4</td><td>5 ft</td><td>Table/Nightstand</td><td>Functional</td><td><span class="pass-pill">PASS</span></td></tr>
+                <tr class="ph"><td>5</td><td>5 ft</td><td>Table/Nightstand</td><td>Functional</td><td><span class="pass-pill">PASS</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -590,11 +593,11 @@ footer span{color:var(--navy);font-weight:500;}
                 <tr><th>Test #</th><th>Target Zones</th><th>Introduced Resistance</th><th>Observed Zone</th><th>Result</th></tr>
               </thead>
               <tbody>
-                <tr class="ph"><td>1</td><td>1 and 2</td><td>LOW</td><td>1 and 2</td><td>PASS</td></tr>
-                <tr class="ph"><td>2</td><td>1 and 2</td><td>LOW</td><td>1 and 2</td><td>PASS</td></tr>
-                <tr class="ph"><td>3</td><td>1, 2, and 3</td><td>HIGH</td><td>1, 2, and 3</td><td>PASS</td></tr>
-                <tr class="ph"><td>4</td><td>1, 2, and 3</td><td>HIGH</td><td>1, 2, and 3</td><td>PASS</td></tr>
-                <tr class="ph"><td>5</td><td>1 and 2</td><td>LOW</td><td>1 and 2</td><td>PASS</td></tr>
+                <tr class="ph"><td>1</td><td>1 and 2</td><td>LOW</td><td>1 and 2</td><td><span class="pass-pill">PASS</span></td></tr>
+                <tr class="ph"><td>2</td><td>1 and 2</td><td>LOW</td><td>1 and 2</td><td><span class="pass-pill">PASS</span></td></tr>
+                <tr class="ph"><td>3</td><td>1, 2, and 3</td><td>HIGH</td><td>1, 2, and 3</td><td><span class="pass-pill">PASS</span></td></tr>
+                <tr class="ph"><td>4</td><td>1, 2, and 3</td><td>HIGH</td><td>1, 2, and 3</td><td><span class="pass-pill">PASS</span></td></tr>
+                <tr class="ph"><td>5</td><td>1 and 2</td><td>LOW</td><td>1 and 2</td><td><span class="pass-pill">PASS</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -608,11 +611,11 @@ footer span{color:var(--navy);font-weight:500;}
                 <tr><th>Dose Class</th><th>Target Volume (mL)</th><th>Delivered Volume (mL)</th><th>Error (%)</th><th>Pass / Fail</th></tr>
               </thead>
               <tbody>
-                <tr class="ph"><td>Class 1</td><td>0.1 mL</td><td>0.1 mL</td><td>0%</td><td>PASS</td></tr>
-                <tr class="ph"><td>Class 2</td><td>0.2 mL</td><td>0.2 mL</td><td>0%</td><td>PASS</td></tr>
-                <tr class="ph"><td>Class 3</td><td>0.3 mL</td><td>0.3 mL</td><td>0%</td><td>PASS</td></tr>
-                <tr class="ph"><td>Class 4</td><td>0.4 mL</td><td>0.4 mL</td><td>0%</td><td>PASS</td></tr>
-                <tr class="ph"><td>Class 5</td><td>0.5 mL</td><td>0.5 mL</td><td>0%</td><td>PASS</td></tr>
+                <tr class="ph"><td>Class 1</td><td>0.1 mL</td><td>0.1 mL</td><td>0%</td><td><span class="pass-pill">PASS</span></td></tr>
+                <tr class="ph"><td>Class 2</td><td>0.2 mL</td><td>0.2 mL</td><td>0%</td><td><span class="pass-pill">PASS</span></td></tr>
+                <tr class="ph"><td>Class 3</td><td>0.3 mL</td><td>0.3 mL</td><td>0%</td><td><span class="pass-pill">PASS</span></td></tr>
+                <tr class="ph"><td>Class 4</td><td>0.4 mL</td><td>0.4 mL</td><td>0%</td><td><span class="pass-pill">PASS</span></td></tr>
+                <tr class="ph"><td>Class 5</td><td>0.5 mL</td><td>0.5 mL</td><td>0%</td><td><span class="pass-pill">PASS</span></td></tr>
               </tbody>
             </table>
           </div>
