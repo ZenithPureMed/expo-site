@@ -207,7 +207,7 @@ nav{
 .img-cap{font-size:12px;color:var(--t3);text-align:center;margin-top:8px;}
 
 /* AFP table — no confidential data */
-.afp-wrap{border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);border:1px solid var(--border);}
+.afp-wrap{border-radius:var(--r);overflow-x:auto;box-shadow:var(--sh);border:1px solid var(--border);}
 .afp-tbl{width:100%;border-collapse:collapse;font-size:15px;}
 .afp-tbl th{
   text-align:left;padding:14px 22px;background:var(--bg2);
@@ -337,6 +337,42 @@ nav{
 footer{background:var(--bg2);border-top:1px solid var(--border);padding:30px 0;text-align:center;}
 footer p{font-size:13px;color:var(--t3);}
 footer span{color:var(--navy);font-weight:500;}
+
+/* ── GLOSSARY TOOLTIPS (abbr) ───────────── */
+abbr[title]{
+  text-decoration:underline dotted rgba(0,168,168,0.55);
+  text-underline-offset:3px;
+  cursor:help;
+  border:0;
+}
+
+/* ── COMPARISON TABLE (overview) ────────── */
+.cmp-wrap{overflow-x:auto;border-radius:var(--rsm);border:1px solid var(--border);}
+.cmp-tbl{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--white);}
+.cmp-tbl th,.cmp-tbl td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--border);}
+.cmp-tbl thead th{
+  background:var(--bg2);font-weight:600;font-size:12px;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--t3);
+}
+.cmp-tbl thead th:nth-child(3){color:var(--teal);}
+.cmp-tbl tbody tr:last-child td{border-bottom:none;}
+.cmp-tbl td:first-child{font-weight:500;color:var(--t1);}
+.cmp-tbl .cmp-no{color:var(--t2);}
+.cmp-tbl .cmp-yes{color:var(--navy);font-weight:500;}
+.cmp-tbl .cmp-yes::before{content:"✓ ";color:var(--teal);font-weight:700;}
+
+/* ── VERIFICATION BANNER + PENDING PILL ─── */
+.vt-banner{
+  background:#FFF8E6;border:1px solid #F0D682;border-left:4px solid #D9A100;
+  border-radius:var(--rsm);padding:14px 18px;margin-bottom:28px;
+  font-size:14.5px;line-height:1.65;color:#5C4400;
+}
+.vt-banner strong{color:#3F2E00;}
+.pend-pill{
+  display:inline-block;font-size:11px;font-weight:600;letter-spacing:.04em;
+  padding:3px 10px;border-radius:100px;
+  background:rgba(217,161,0,0.13);color:#8A6500;border:1px solid rgba(217,161,0,0.35);
+}
 </style>
 </head>
 <body>
@@ -389,12 +425,13 @@ footer span{color:var(--navy);font-weight:500;}
       <h1 class="hero-t1">PureMed</h1>
       <h1 class="hero-t2">Zenith</h1>
       <p class="hero-desc">
-        <!-- EDIT: Replace with your project description -->
-        A closed-loop autoinjector that adapts to your tissue, not the other way around. 
-        With an an electromechanical design, Zenith automates drug delivery with an adaptive flow profile, tailoring the injection real time to reduce pain and promote healthy delivery.
+        A closed-loop <abbr title="Self-administered injection device that delivers a pre-measured drug dose">autoinjector</abbr> that adapts to your tissue, not the other way around.
+        With an electromechanical design, Zenith automates drug delivery via an <abbr title="Adaptive Force Profile — closed-loop algorithm that varies motor step size based on real-time tissue resistance">Adaptive Force Profile</abbr>, tailoring the injection in real-time to reduce pain and promote consistent delivery.
       </p>
       <div class="hero-tags">
         <span class="tag">Biomedical Engineering</span>
+        <span class="tag"><abbr title="Glucagon-like peptide-1 receptor agonists — class of metabolic medications including weekly injectables">GLP-1</abbr> Delivery</span>
+        <span class="tag">Closed-Loop Mechatronics</span>
         <span class="tag">Stevens Expo 2026</span>
       </div>
     </div>
@@ -406,19 +443,19 @@ footer span{color:var(--navy);font-weight:500;}
       <div class="snap-ey fade">Key Features</div>
       <div class="snap-row fade">
         <div class="snap-cell">
-          <div class="snap-num">6.5s</div>
+          <div class="snap-num">~6.5s</div>
           <div class="snap-lbl">Avg. Injection Time</div>
-          <div class="snap-desc">Average full delivery cycle across all test iterations</div>
+          <div class="snap-desc">Sub-7s delivery via stepwise adaptive profile <span style="color:var(--t3);">· V1.0 preliminary</span></div>
         </div>
         <div class="snap-cell">
-          <div class="snap-num">16–24N</div>
-          <div class="snap-lbl">Operating Force Range</div>
-          <div class="snap-desc">Average force range across adaptive delivery zones</div>
+          <div class="snap-num">16–24 <span style="font-size:32px;">kPa</span></div>
+          <div class="snap-lbl">Adaptive Operating Pressure</div>
+          <div class="snap-desc">Closed-loop feedback maintains delivery across the full <abbr title="Body Mass Index">BMI</abbr> tissue spectrum</div>
         </div>
         <div class="snap-cell">
-          <div class="snap-num">5</div>
-          <div class="snap-lbl">Dose Classes</div>
-          <div class="snap-desc">Standardized profiles covering a range of injectable volumes</div>
+          <div class="snap-num">0.1–0.5 <span style="font-size:32px;">mL</span></div>
+          <div class="snap-lbl">5 Dose Classes (A–E)</div>
+          <div class="snap-desc">Covering standard <abbr title="Glucagon-like peptide-1 receptor agonists">GLP-1</abbr> dose volumes</div>
         </div>
       </div>
     </div>
@@ -455,17 +492,43 @@ footer span{color:var(--navy);font-weight:500;}
 
       <div class="ov-card fade">
         <h3>Clinical Background</h3>
-        <div class="ph-box">→ Self-administered subcutaneous injections are frequently associated with high rates of patient non-adherence due to needle phobia and pain caused by uncontrolled, high speed injection delivery. Conventional autoinjectors rely on a strict mechanical design that utilizes a spring, delivering the medication at a fixed rate. This process cannot adapt to the patients tissue resistance leading to non-uniform delivery, inconsistent dosing, and local damage. </div>
+        <div class="ph-box">→ Self-administered subcutaneous injections are frequently associated with high rates of patient non-adherence due to needle phobia and pain caused by uncontrolled, high-speed injection delivery. Conventional autoinjectors rely on a strict mechanical design that utilizes a spring, delivering the medication at a fixed rate. This process cannot adapt to the patient's tissue resistance, leading to non-uniform delivery, inconsistent dosing, and local damage.</div>
       </div>
 
       <div class="ov-card fade">
         <h3>Problem Statement</h3>
-        <div class="ph-box">→ Over 37 million Americans require regular subcutaneous therapy for metabolic disorders, yet the market is dominated by a "one-size-fits-all" delivery system that fails to address specific physiological differences amongst patients. Existing solutions also create significant medical waste and lacks a variety of feedback mechanisms that would ensure a more consistent, pain minimized injection experience for all patients. </div>
+        <div class="ph-box">→ Over 37 million Americans require regular subcutaneous therapy for metabolic disorders, yet the market is dominated by a "one-size-fits-all" delivery system that fails to address physiological differences among patients. Existing solutions also create significant medical waste and lack the feedback mechanisms needed to ensure a consistent, pain-minimized injection experience across patients.</div>
       </div>
 
       <div class="ov-card fade">
         <h3>Our Approach</h3>
-        <div class="ph-box">→ At PureMed we designed an autoinjector known as the Zenith. This electromechanical autoinjector operates as closed loop feedback control system that monitors real-time pressure feedback readings to modulate a motor driven adaptive flow profile during the injection. By integrating precise mechatronics, this device maintains optimal delivery speeds regardless of the tissue resistance, with validated performance data collected through mechanical testing and analysis. </div>
+        <div class="ph-box">→ At PureMed we designed an autoinjector known as the Zenith. This electromechanical autoinjector operates as a closed-loop feedback control system that monitors real-time pressure readings to modulate a motor-driven <abbr title="Adaptive Force Profile">Adaptive Force Profile</abbr> during the injection. By integrating precise mechatronics, this device maintains optimal delivery speeds regardless of tissue resistance, with performance data collected through mechanical testing and analysis.</div>
+      </div>
+
+      <div class="ov-card fade">
+        <h3>How It Compares</h3>
+        <div class="ph-box" style="padding:0;">
+          <p style="margin-bottom:18px;">→ A side-by-side view of conventional spring-driven pens versus the Zenith closed-loop platform.</p>
+          <div class="cmp-wrap">
+            <table class="cmp-tbl">
+              <thead>
+                <tr>
+                  <th>Capability</th>
+                  <th>Conventional Pens</th>
+                  <th>PureMed Zenith</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Delivery control</td><td class="cmp-no">Open-loop spring</td><td class="cmp-yes">Closed-loop adaptive</td></tr>
+                <tr><td>Tissue feedback</td><td class="cmp-no">None</td><td class="cmp-yes">Real-time pressure sensing</td></tr>
+                <tr><td>Reusability</td><td class="cmp-no">Single-use disposable</td><td class="cmp-yes">Reusable chassis</td></tr>
+                <tr><td>Dose tracking</td><td class="cmp-no">None</td><td class="cmp-yes">Built-in logging</td></tr>
+                <tr><td>Needle exposure</td><td class="cmp-no">Exposed</td><td class="cmp-yes">Hidden-needle design</td></tr>
+                <tr><td>Sustainability</td><td class="cmp-no">~52 disposables / patient / yr</td><td class="cmp-yes">Reusable — minimal waste</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -480,7 +543,7 @@ footer span{color:var(--navy);font-weight:500;}
     <div class="wrap">
       <span class="eyebrow fade">System</span>
       <h2 class="sec-title fade">Architecture &amp; Engineering</h2>
-      <p class="sec-sub fade">CAD models, adaptive flow profile algorithm, tissue simulation data, and verified test results.</p>
+      <p class="sec-sub fade">CAD models, Adaptive Force Profile algorithm, tissue simulation data, and verification test plans.</p>
 
       <!-- CAD Models -->
       <div class="sys-blk fade">
@@ -507,39 +570,52 @@ footer span{color:var(--navy);font-weight:500;}
 
       <!-- AFP Algorithm -->
       <div class="sys-blk fade">
-        <div class="sys-blk-hd">Adaptive Flow Profile (AFP) Algorithm</div>
+        <div class="sys-blk-hd">Adaptive Force Profile (AFP) Algorithm</div>
+        <p style="font-size:16px;color:var(--t2);margin-bottom:14px;line-height:1.7;font-weight:300;">
+          <strong style="color:var(--t1);font-weight:500;">In plain language:</strong> the device feels how hard the tissue pushes back against the needle and slows itself down in dense tissue, then speeds up again in soft tissue — like cruise control for an injection.
+        </p>
         <p style="font-size:16px;color:var(--t2);margin-bottom:24px;line-height:1.7;font-weight:300;">
-          The AFP algorithm reads real-time pressure sensor data and modulates actuator speed across four defined delivery zones, adjusting delivery speed based on severity of resistance and stopping automatically when a safety threshold is exceeded.
+          <strong style="color:var(--t1);font-weight:500;">Engineering detail:</strong> the AFP firmware samples plunger resistance each cycle and selects a step-increment from one of three resistance zones, with a fixed inter-step delay producing a slow, uniform delivery profile. A safety stop halts the motor if force exceeds the configured ceiling.
         </p>
         <div class="afp-wrap">
           <table class="afp-tbl">
             <thead>
               <tr>
                 <th>Zone</th>
-                <th>Speed</th>
-                <th>Description</th>
+                <th>Resistance</th>
+                <th>Step Increment</th>
+                <th>Inter-step Delay</th>
+                <th>Behavior</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td class="z-lbl">Zone 1</td>
-                <td><span class="spd-pill s-fast">Fast</span></td>
-                <td>Minimal tissue resistance detected: full-speed advance</td>
+                <td>Low</td>
+                <td><span class="spd-pill s-fast">3 steps / cycle</span></td>
+                <td>200 ms</td>
+                <td>Fastest advance — compliant / low-viscosity tissue</td>
               </tr>
               <tr>
                 <td class="z-lbl">Zone 2</td>
-                <td><span class="spd-pill s-med">Medium</span></td>
-                <td>Moderate resistance present: controlled advance</td>
+                <td>Medium</td>
+                <td><span class="spd-pill s-med">2 steps / cycle</span></td>
+                <td>200 ms</td>
+                <td>Controlled advance — moderate resistance</td>
               </tr>
               <tr>
                 <td class="z-lbl">Zone 3</td>
-                <td><span class="spd-pill s-slow">Slow</span></td>
-                <td>Elevated resistance: cautious step advance</td>
+                <td>High</td>
+                <td><span class="spd-pill s-slow">1 step / cycle</span></td>
+                <td>200 ms</td>
+                <td>Cautious advance — dense / resistive tissue</td>
               </tr>
               <tr class="stop">
                 <td class="z-lbl">Safety Stop</td>
-                <td><span class="spd-pill s-stop">Stop</span></td>
-                <td>Force threshold exceeded: delivery halted immediately</td>
+                <td>&gt; threshold</td>
+                <td><span class="spd-pill s-stop">0 (halt)</span></td>
+                <td>—</td>
+                <td>Occlusion / over-pressure protection</td>
               </tr>
             </tbody>
           </table>
@@ -564,59 +640,65 @@ footer span{color:var(--navy);font-weight:500;}
         </div>
       </div>
 
-      <!-- Verification Data -->
+      <!-- Verification Test Plans -->
       <div class="sys-blk fade">
-        <div class="sys-blk-hd">Verification &amp; Testing Data</div>
+        <div class="sys-blk-hd">Verification &amp; Test Plans</div>
+
+        <div class="vt-banner">
+          <strong>Status:</strong> Initial V1.0 testing surfaced <abbr title="Adaptive Force Profile">AFP</abbr> mapping inaccuracies that affected the device-level test results. Protocols are being refined and full retest is in progress; the tables below describe the planned verification matrix. Verified results will replace these tables once retest data is finalized.
+        </div>
 
         <div class="vt-blk">
-          <div class="vt-title">Drop Testing: Simulate wordly application involving overall mechanical integrity of the Zenith</div>
+          <div class="vt-title">Drop Test Plan — mechanical integrity per ISO 11608-1 guidance</div>
           <div class="vt-wrap">
             <table class="vtbl">
               <thead>
-                <tr><th>Test #</th><th>Drop Height (feet)</th><th>Surface</th><th>Device Status</th><th>Notes</th></tr>
+                <tr><th>Test #</th><th>Drop Height</th><th>Surface</th><th>Orientation</th><th>Status</th></tr>
               </thead>
               <tbody>
-                <tr class="ph"><td>1</td><td>5 ft</td><td>Table/Nightstand</td><td>Functional</td><td><span class="pass-pill">PASS</span></td></tr>
-                <tr class="ph"><td>2</td><td>5 ft</td><td>Table/Nightstand</td><td>Functional</td><td><span class="pass-pill">PASS</span></td></tr>
-                <tr class="ph"><td>3</td><td>5 ft</td><td>Table/Nightstand</td><td>Functional</td><td><span class="pass-pill">PASS</span></td></tr>
-                <tr class="ph"><td>4</td><td>5 ft</td><td>Table/Nightstand</td><td>Functional</td><td><span class="pass-pill">PASS</span></td></tr>
-                <tr class="ph"><td>5</td><td>5 ft</td><td>Table/Nightstand</td><td>Functional</td><td><span class="pass-pill">PASS</span></td></tr>
+                <tr class="ph"><td>1</td><td>1.0 m</td><td>Steel plate</td><td>Cap-down</td><td><span class="pend-pill">Planned</span></td></tr>
+                <tr class="ph"><td>2</td><td>1.0 m</td><td>Steel plate</td><td>On side</td><td><span class="pend-pill">Planned</span></td></tr>
+                <tr class="ph"><td>3</td><td>1.0 m</td><td>Concrete</td><td>Cap-down</td><td><span class="pend-pill">Planned</span></td></tr>
+                <tr class="ph"><td>4</td><td>1.0 m</td><td>Concrete</td><td>45° angle</td><td><span class="pend-pill">Planned</span></td></tr>
+                <tr class="ph"><td>5</td><td>1.0 m</td><td>Tile</td><td>Cap-down</td><td><span class="pend-pill">Planned</span></td></tr>
+                <tr class="ph"><td>6</td><td>1.0 m</td><td>Tile</td><td>On side</td><td><span class="pend-pill">Planned</span></td></tr>
               </tbody>
             </table>
           </div>
         </div>
 
         <div class="vt-blk">
-          <div class="vt-title">AFP Functionality Testing</div>
+          <div class="vt-title">AFP Functionality Test Plan — adaptive zone response under controlled resistance</div>
           <div class="vt-wrap">
             <table class="vtbl">
               <thead>
-                <tr><th>Test #</th><th>Target Zones</th><th>Introduced Resistance</th><th>Observed Zone</th><th>Result</th></tr>
+                <tr><th>Test #</th><th>Resistance Profile</th><th>Expected Zone Path</th><th>Step Increment Verified</th><th>Status</th></tr>
               </thead>
               <tbody>
-                <tr class="ph"><td>1</td><td>1 and 2</td><td>LOW</td><td>1 and 2</td><td><span class="pass-pill">PASS</span></td></tr>
-                <tr class="ph"><td>2</td><td>1 and 2</td><td>LOW</td><td>1 and 2</td><td><span class="pass-pill">PASS</span></td></tr>
-                <tr class="ph"><td>3</td><td>1, 2, and 3</td><td>HIGH</td><td>1, 2, and 3</td><td><span class="pass-pill">PASS</span></td></tr>
-                <tr class="ph"><td>4</td><td>1, 2, and 3</td><td>HIGH</td><td>1, 2, and 3</td><td><span class="pass-pill">PASS</span></td></tr>
-                <tr class="ph"><td>5</td><td>1 and 2</td><td>LOW</td><td>1 and 2</td><td><span class="pass-pill">PASS</span></td></tr>
+                <tr class="ph"><td>1</td><td>Low (compliant)</td><td>Zone 1 → 2</td><td>3 → 2 steps / cycle</td><td><span class="pend-pill">Pending Retest</span></td></tr>
+                <tr class="ph"><td>2</td><td>Low (compliant)</td><td>Zone 1 → 2</td><td>3 → 2 steps / cycle</td><td><span class="pend-pill">Pending Retest</span></td></tr>
+                <tr class="ph"><td>3</td><td>High (resistive)</td><td>Zone 1 → 2 → 3</td><td>3 → 2 → 1 steps / cycle</td><td><span class="pend-pill">Pending Retest</span></td></tr>
+                <tr class="ph"><td>4</td><td>High (resistive)</td><td>Zone 1 → 2 → 3</td><td>3 → 2 → 1 steps / cycle</td><td><span class="pend-pill">Pending Retest</span></td></tr>
+                <tr class="ph"><td>5</td><td>Step (low → high)</td><td>Full sweep, no overshoot</td><td>Adaptive response</td><td><span class="pend-pill">Pending Retest</span></td></tr>
+                <tr class="ph"><td>6</td><td>Over-threshold</td><td>Safety Stop triggered</td><td>0 (halt)</td><td><span class="pend-pill">Pending Retest</span></td></tr>
               </tbody>
             </table>
           </div>
         </div>
 
         <div class="vt-blk">
-          <div class="vt-title">Dose Accuracy Testing</div>
+          <div class="vt-title">Dose Accuracy Test Plan — target tolerance ±5% per dose class</div>
           <div class="vt-wrap">
             <table class="vtbl">
               <thead>
-                <tr><th>Dose Class</th><th>Target Volume (mL)</th><th>Delivered Volume (mL)</th><th>Error (%)</th><th>Pass / Fail</th></tr>
+                <tr><th>Dose Class</th><th>Target Volume</th><th>Tolerance</th><th>n (planned)</th><th>Status</th></tr>
               </thead>
               <tbody>
-                <tr class="ph"><td>Class 1</td><td>0.1 mL</td><td>0.1 mL</td><td>0%</td><td><span class="pass-pill">PASS</span></td></tr>
-                <tr class="ph"><td>Class 2</td><td>0.2 mL</td><td>0.2 mL</td><td>0%</td><td><span class="pass-pill">PASS</span></td></tr>
-                <tr class="ph"><td>Class 3</td><td>0.3 mL</td><td>0.3 mL</td><td>0%</td><td><span class="pass-pill">PASS</span></td></tr>
-                <tr class="ph"><td>Class 4</td><td>0.4 mL</td><td>0.4 mL</td><td>0%</td><td><span class="pass-pill">PASS</span></td></tr>
-                <tr class="ph"><td>Class 5</td><td>0.5 mL</td><td>0.5 mL</td><td>0%</td><td><span class="pass-pill">PASS</span></td></tr>
+                <tr class="ph"><td>Class A</td><td>0.1 mL</td><td>±5%</td><td>10</td><td><span class="pend-pill">Pending Retest</span></td></tr>
+                <tr class="ph"><td>Class B</td><td>0.2 mL</td><td>±5%</td><td>10</td><td><span class="pend-pill">Pending Retest</span></td></tr>
+                <tr class="ph"><td>Class C</td><td>0.3 mL</td><td>±5%</td><td>10</td><td><span class="pend-pill">Pending Retest</span></td></tr>
+                <tr class="ph"><td>Class D</td><td>0.4 mL</td><td>±5%</td><td>10</td><td><span class="pend-pill">Pending Retest</span></td></tr>
+                <tr class="ph"><td>Class E</td><td>0.5 mL</td><td>±5%</td><td>10</td><td><span class="pend-pill">Pending Retest</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -643,11 +725,11 @@ footer span{color:var(--navy);font-weight:500;}
         <div class="team-card">
           <div class="t-av">👤<!-- EDIT: <img src="images/m1.jpg"/> --></div>
           <div class="t-num">Member 01</div>
-          <div class="t-nm">[ Nathanial Skutnik ]</div>
-          <div class="t-rl">[ Biomedical Engineering · Senior ]</div>
+          <div class="t-nm">Nathanial Skutnik</div>
+          <div class="t-rl">Biomedical Engineering · Senior</div>
           <div class="t-foc">
             <strong>Project Focus</strong>
-            <p>[ Founder &amp; Chief Executive; Adaptive Flow Profile Algorithm Development, MATLAB AFP Simulations, Subcutaneous Injection Simulations, CAD Design, Zenith Test Protocol Development, Zenith Testing & Data Analysis ]</p>
+            <p>Founder &amp; Chief Executive; Adaptive Force Profile algorithm development, MATLAB AFP simulations, subcutaneous injection simulations, CAD design, Zenith test protocol development, testing &amp; data analysis.</p>
           </div>
           <a href="https://www.linkedin.com/in/nathanial-skutnik/" target="_blank" class="li-btn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
@@ -658,11 +740,11 @@ footer span{color:var(--navy);font-weight:500;}
         <div class="team-card">
           <div class="t-av">👤</div>
           <div class="t-num">Member 02</div>
-          <div class="t-nm">[ Ashley Allen ]</div>
-          <div class="t-rl">[ Biomedical Engineering · Senior ]</div>
+          <div class="t-nm">Ashley Allen</div>
+          <div class="t-rl">Biomedical Engineering · Senior</div>
           <div class="t-foc">
             <strong>Project Focus</strong>
-            <p>[ Core Member; Simulation R&amp;D, Presentation Developer ]</p>
+            <p>Core Member; simulation R&amp;D, presentation development.</p>
           </div>
           <a href="https://www.linkedin.com/in/ashley-r-allen-898765434123098776/" target="_blank" class="li-btn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
@@ -673,11 +755,11 @@ footer span{color:var(--navy);font-weight:500;}
         <div class="team-card">
           <div class="t-av">👤</div>
           <div class="t-num">Member 03</div>
-          <div class="t-nm">[ Tomislav Curko ]</div>
-          <div class="t-rl">[ Biomedical Engineering · Senior ]</div>
+          <div class="t-nm">Tomislav Curko</div>
+          <div class="t-rl">Biomedical Engineering · Senior</div>
           <div class="t-foc">
             <strong>Project Focus</strong>
-            <p>[ Core Member; CAD Design, Presentation Developer ]</p>
+            <p>Core Member; CAD design, presentation development.</p>
           </div>
           <a href="https://www.linkedin.com/in/tomislav-curko-0b042627a/" target="_blank" class="li-btn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
@@ -688,11 +770,11 @@ footer span{color:var(--navy);font-weight:500;}
         <div class="team-card">
           <div class="t-av">👤</div>
           <div class="t-num">Member 04</div>
-          <div class="t-nm">[ Thomas Gigliotti ]</div>
-          <div class="t-rl">[ Biomedical Engineering · Senior ]</div>
+          <div class="t-nm">Thomas Gigliotti</div>
+          <div class="t-rl">Biomedical Engineering · Senior</div>
           <div class="t-foc">
             <strong>Project Focus</strong>
-            <p>[ Core Member; CAD Design, Presentation Developer ]</p>
+            <p>Core Member; CAD design, presentation development.</p>
           </div>
           <a href="https://www.linkedin.com/in/thomas-gigliotti-2360b2263/" target="_blank" class="li-btn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
@@ -703,11 +785,11 @@ footer span{color:var(--navy);font-weight:500;}
         <div class="team-card">
           <div class="t-av">👤</div>
           <div class="t-num">Member 05</div>
-          <div class="t-nm">[ Emily Wohlleber ]</div>
-          <div class="t-rl">[ Biomedical Engineering · Senior ]</div>
+          <div class="t-nm">Emily Wohlleber</div>
+          <div class="t-rl">Biomedical Engineering · Senior</div>
           <div class="t-foc">
             <strong>Project Focus</strong>
-            <p>[ Core Member; AFP Simulation R&amp;D, Subcutaneous Injection Simulations, Zenith Testing & Data Analysis, Poster Creation, Presentation Developer ]</p>
+            <p>Core Member; AFP simulation R&amp;D, subcutaneous injection simulations, Zenith testing &amp; data analysis, poster creation, presentation development.</p>
           </div>
           <a href="https://www.linkedin.com/in/emily-wohlleber-/" target="_blank" class="li-btn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
@@ -763,30 +845,30 @@ footer span{color:var(--navy);font-weight:500;}
           <div class="ms-card">
             <div class="ms-ch"><span class="ms-pill done">Completed</span></div>
             <div class="ms-ct">AFP Algorithm Development</div>
-            <div class="ms-cb">Four-zone adaptive flow profile designed and calibrated against physical force measurements using a load cell reference.</div>
+            <div class="ms-cb">Three-zone Adaptive Force Profile (plus safety stop) designed and calibrated against physical force measurements using a load cell reference. Step increments and a 200 ms inter-step delay produce a slow, uniform delivery profile.</div>
             <div class="ms-find">
               <strong>Algorithm Update</strong>
-              Adaptive Flow Profile Algorithm operates mechanically, set ranges can be established for consistent mechanical dosing without concern for issues upon changing dose volume.
+              The Adaptive Force Profile algorithm operates mechanically, allowing set step ranges to be established for consistent dosing across varied dose volumes.
             </div>
           </div>
 
           <div class="ms-card">
             <div class="ms-ch"><span class="ms-pill done">Completed</span></div>
-            <div class="ms-ct">AFP Functionality Testing</div>
-            <div class="ms-cb">AFP Algorithm was tested to determine if the operable zones functioned consistently under varying levels of resistance, and elapsed time.</div>
+            <div class="ms-ct">AFP Functionality Testing — Initial Pass</div>
+            <div class="ms-cb">Initial AFP zone-response testing under controlled high- and low-resistance profiles. Identified mapping inaccuracies in the V1.0 firmware-to-force calibration.</div>
             <div class="ms-find">
-              <strong>Key Finding</strong>
-             Results proved that the algorithm's subclasses each function consistently, under high and low levels of introduced resistance to mimic worldly subcutaneous delivery.
+              <strong>Outcome &amp; Next Step</strong>
+              Initial run informed firmware refinement; full retest with corrected AFP mapping is in progress, with results to replace the current verification tables.
             </div>
           </div>
 
            <div class="ms-card">
             <div class="ms-ch"><span class="ms-pill done">Completed</span></div>
-            <div class="ms-ct">BLGF Testing — Syringe and Cartridge Baselines </div>
-            <div class="ms-cb">Break-loose and glide force testing across multiple iterations establishing syringe and cartridge reference values.</div>
+            <div class="ms-ct"><abbr title="Break-Loose and Glide Force — measures syringe plunger friction (a property of the syringe hardware, not the device)">BLGF</abbr> Testing — Syringe &amp; Cartridge Baselines</div>
+            <div class="ms-cb">Break-loose and glide force testing across 10 iterations to establish syringe and cartridge friction reference values.</div>
             <div class="ms-find">
               <strong>Key Finding</strong>
-             Baseline testing values registered consistent validated results that show high promise in regards to device operation.
+              Baseline syringe characterization (BL ~15 N, glide 16–24 N) registered consistent values across iterations, validating the syringe envelope the device must operate within.
             </div>
           </div>
 
@@ -800,9 +882,9 @@ footer span{color:var(--navy);font-weight:500;}
 
           <div class="ms-card now-c">
             <div class="ms-ch"><span class="ms-pill now">In Progress</span></div>
-            <div class="ms-ct">System Architecture Validation &amp; Verification</div>
+            <div class="ms-ct">AFP Mapping Refinement &amp; Retest</div>
             <div class="ms-cb">
-              <!-- EDIT --> Drop testing, AFP functionality verification and dose accuracy testing data is being analyzed and further test protocols are in development. 
+              Initial verification surfaced AFP firmware-to-force mapping inaccuracies. Test protocols (drop, AFP functionality, dose accuracy) are being refined; full retest is underway with corrected calibration.
             </div>
           </div>
 
@@ -810,7 +892,7 @@ footer span{color:var(--navy);font-weight:500;}
             <div class="ms-ch"><span class="ms-pill now">In Progress</span></div>
             <div class="ms-ct">Data Collection &amp; Analysis</div>
             <div class="ms-cb">
-              <!-- EDIT --> Final verified data is currently being further analyzed and visually prepared for the final report.
+              Verified post-retest data being analyzed and visualized for the final report and Expo deliverables.
             </div>
           </div>
 
@@ -850,6 +932,7 @@ footer span{color:var(--navy);font-weight:500;}
 <footer>
   <div class="wrap">
     <p>PureMed Zenith &nbsp;·&nbsp; <span>Stevens Institute of Technology</span> &nbsp;·&nbsp; Expo 2026</p>
+    <p style="margin-top:6px;font-size:11.5px;color:var(--t3);">Patent Pending — Closed-Loop Mechatronic Delivery Mechanism &nbsp;·&nbsp; Confidential</p>
   </div>
 </footer>
 
