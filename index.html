@@ -206,6 +206,87 @@ nav{
 .img-slot .ic{font-size:26px;color:var(--teal);opacity:.35;margin-bottom:4px;}
 .img-cap{font-size:12px;color:var(--t3);text-align:center;margin-top:8px;}
 
+/* Filled CAD figure */
+.cad-fig{
+  background:#fff;border:1px solid var(--border);border-radius:var(--r);
+  box-shadow:0 4px 24px rgba(0,0,0,0.09);overflow:hidden;
+  min-height:240px;display:flex;align-items:center;justify-content:center;
+  transition:box-shadow .25s,transform .25s;
+}
+.cad-fig:hover{box-shadow:0 8px 36px rgba(0,0,0,0.13);transform:translateY(-2px);}
+.cad-fig img{width:100%;height:280px;object-fit:contain;background:#fff;display:block;border-radius:0;}
+
+/* Collaborate CTA */
+.cta-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:inherit;font-size:13px;font-weight:600;letter-spacing:.01em;
+  color:#fff;background:var(--teal);
+  padding:8px 18px;border-radius:100px;border:1px solid var(--teal);
+  cursor:pointer;transition:transform .18s,box-shadow .18s,background .18s;
+  box-shadow:0 4px 14px rgba(0,168,168,0.28);
+}
+.cta-btn:hover{background:#008787;border-color:#008787;transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,168,168,0.36);}
+.cta-btn:active{transform:translateY(0);}
+.cta-btn svg{width:13px;height:13px;}
+
+/* Collaborate modal */
+.modal-bd{
+  display:none;position:fixed;inset:0;z-index:200;
+  background:rgba(20,30,45,0.55);backdrop-filter:blur(4px);
+  align-items:center;justify-content:center;padding:20px;
+  animation:bdIn .2s ease-out;
+}
+.modal-bd.op{display:flex;}
+@keyframes bdIn{from{opacity:0;}to{opacity:1;}}
+.modal{
+  background:#fff;border-radius:var(--r);max-width:460px;width:100%;
+  box-shadow:0 24px 60px rgba(0,0,0,0.28);
+  padding:36px 32px 28px;position:relative;
+  animation:mdIn .22s cubic-bezier(.34,1.56,.64,1);
+}
+@media(max-width:480px){.modal{padding:32px 22px 24px;}}
+@keyframes mdIn{from{opacity:0;transform:translateY(12px) scale(.98);}to{opacity:1;transform:none;}}
+.modal-x{
+  position:absolute;top:14px;right:14px;width:32px;height:32px;
+  display:flex;align-items:center;justify-content:center;
+  background:transparent;border:none;border-radius:50%;cursor:pointer;
+  color:var(--t3);font-size:22px;line-height:1;transition:background .18s,color .18s;
+}
+.modal-x:hover{background:var(--bg2);color:var(--t1);}
+.modal-ey{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);margin-bottom:10px;display:block;}
+.modal-h{font-size:26px;font-weight:700;letter-spacing:-.02em;color:var(--t1);margin-bottom:10px;line-height:1.15;}
+.modal-sub{font-size:14.5px;font-weight:300;color:var(--t2);line-height:1.65;margin-bottom:24px;}
+.modal-form .fld{margin-bottom:14px;}
+.modal-form label{display:block;font-size:12px;font-weight:600;color:var(--t2);margin-bottom:6px;letter-spacing:.01em;}
+.modal-form label .req{color:var(--teal);margin-left:2px;}
+.modal-form input{
+  width:100%;font-family:inherit;font-size:14px;color:var(--t1);
+  padding:10px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--bg);transition:border-color .18s,background .18s,box-shadow .18s;
+}
+.modal-form input:focus{outline:none;border-color:var(--teal);background:#fff;box-shadow:0 0 0 3px rgba(0,168,168,0.12);}
+.modal-form .submit{
+  width:100%;margin-top:6px;padding:12px 20px;
+  font-family:inherit;font-size:14px;font-weight:600;letter-spacing:.01em;color:#fff;
+  background:var(--teal);border:1px solid var(--teal);border-radius:100px;cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,168,168,0.28);
+  transition:background .18s,box-shadow .18s,transform .18s,border-color .18s;
+}
+.modal-form .submit:hover{background:#008787;border-color:#008787;transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,168,168,0.36);}
+.modal-form .submit:active{transform:translateY(0);}
+.modal-form .submit:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:0 4px 14px rgba(0,168,168,0.18);}
+.modal-note{font-size:12px;color:var(--t3);text-align:center;margin-top:12px;line-height:1.5;}
+.modal-thx{display:none;text-align:center;padding:8px 0 4px;}
+.modal-thx.op{display:block;}
+.modal-thx .ck{
+  width:54px;height:54px;border-radius:50%;background:var(--teal-lt);
+  color:var(--teal);display:flex;align-items:center;justify-content:center;
+  margin:0 auto 14px;font-size:26px;
+}
+.modal-thx h3{font-size:20px;font-weight:700;color:var(--t1);margin-bottom:8px;letter-spacing:-.01em;}
+.modal-thx p{font-size:14px;color:var(--t2);line-height:1.6;}
+.modal-form.hidden{display:none;}
+
 /* AFP table — no confidential data */
 .afp-wrap{border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);border:1px solid var(--border);}
 .afp-tbl{width:100%;border-collapse:collapse;font-size:15px;}
@@ -410,6 +491,10 @@ footer span{color:var(--navy);font-weight:500;}
       </p>
       <div class="hero-tags">
         <span class="tag">Biomedical Engineering</span>
+        <button class="cta-btn" type="button" onclick="openCollab()" aria-label="Open the Collaborate with us form">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Collaborate with us
+        </button>
         <span class="tag">Stevens Expo 2026</span>
       </div>
     </div>
@@ -528,20 +613,18 @@ footer span{color:var(--navy);font-weight:500;}
         <div class="sys-blk-hd">CAD Models</div>
         <div class="g2">
           <div>
-            <div class="img-slot">
-              <div class="ic">📐</div>
-              CAD Model 1: Full Assembly
-              <span style="font-size:11px;margin-top:2px;">Replace: &lt;img src="images/cad1.jpg"&gt;</span>
+            <div class="cad-fig">
+              <img src="images/Autoinjector.png" alt="Zenith autoinjector cross-sectional CAD view"/>
             </div>
-            <p class="img-cap">Device: Full Assembly View</p>
+            <p class="img-cap">Zenith: Cross-Sectional View</p>
           </div>
           <div>
             <div class="img-slot">
               <div class="ic">📐</div>
-              CAD Model 2: Cross-Section / Exploded
-              <span style="font-size:11px;margin-top:2px;">Replace: &lt;img src="images/cad2.jpg"&gt;</span>
+              Zenith: Alpha Model
+              <span style="font-size:11px;margin-top:2px;">Image coming soon</span>
             </div>
-            <p class="img-cap">Device: Cross-Sectional View</p>
+            <p class="img-cap">Zenith: Alpha Model</p>
           </div>
         </div>
       </div>
@@ -887,6 +970,41 @@ footer span{color:var(--navy);font-weight:500;}
 </div><!-- /milestones -->
 
 
+<!-- COLLABORATE MODAL -->
+<div class="modal-bd" id="collab-bd" onclick="if(event.target===this)closeCollab()" role="dialog" aria-modal="true" aria-labelledby="collab-h">
+  <div class="modal">
+    <button class="modal-x" type="button" onclick="closeCollab()" aria-label="Close">&times;</button>
+
+    <form class="modal-form" id="collab-form" onsubmit="return submitCollab(event)" novalidate>
+      <div class="modal-ey">Get in Touch</div>
+      <h3 class="modal-h" id="collab-h">Collaborate with us</h3>
+      <p class="modal-sub">Interested in PureMed Zenith? Drop your info and we'll reach out to you.</p>
+
+      <div class="fld">
+        <label for="cf-name">Name<span class="req">*</span></label>
+        <input id="cf-name" name="name" type="text" required autocomplete="name" placeholder="Your full name"/>
+      </div>
+      <div class="fld">
+        <label for="cf-email">Email</label>
+        <input id="cf-email" name="email" type="email" autocomplete="email" placeholder="you@example.com"/>
+      </div>
+      <div class="fld">
+        <label for="cf-phone">Phone</label>
+        <input id="cf-phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 555-5555"/>
+      </div>
+
+      <button class="submit" type="submit" id="cf-submit">Send</button>
+      <p class="modal-note">We will reach out to you. Email or phone — at least one is required.</p>
+    </form>
+
+    <div class="modal-thx" id="collab-thx">
+      <div class="ck">&#10003;</div>
+      <h3>Thanks for reaching out!</h3>
+      <p>We received your info and will be in touch shortly.</p>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
@@ -937,6 +1055,61 @@ function triggerFades() {
   document.querySelectorAll('.page.active .fade:not(.in)').forEach(el => obs.observe(el));
 }
 triggerFades();
+
+// Collaborate modal
+const COLLAB_ENDPOINT = 'https://formspree.io/f/mjglwnbp';
+
+function openCollab(){
+  document.getElementById('collab-bd').classList.add('op');
+  document.body.style.overflow='hidden';
+  setTimeout(()=>{ const n=document.getElementById('cf-name'); if(n) n.focus(); }, 80);
+}
+function closeCollab(){
+  document.getElementById('collab-bd').classList.remove('op');
+  document.body.style.overflow='';
+  document.getElementById('collab-form').classList.remove('hidden');
+  document.getElementById('collab-thx').classList.remove('op');
+  document.getElementById('collab-form').reset();
+  const btn=document.getElementById('cf-submit'); btn.disabled=false; btn.textContent='Send';
+}
+document.addEventListener('keydown', e => {
+  if(e.key==='Escape' && document.getElementById('collab-bd').classList.contains('op')) closeCollab();
+});
+
+async function submitCollab(e){
+  e.preventDefault();
+  const form = document.getElementById('collab-form');
+  const name = document.getElementById('cf-name').value.trim();
+  const email = document.getElementById('cf-email').value.trim();
+  const phone = document.getElementById('cf-phone').value.trim();
+  if(!name){ document.getElementById('cf-name').focus(); return false; }
+  if(!email && !phone){
+    alert('Please provide either an email or phone number so we can reach out.');
+    document.getElementById('cf-email').focus();
+    return false;
+  }
+  const btn = document.getElementById('cf-submit');
+  btn.disabled = true; btn.textContent = 'Sending…';
+
+  if(COLLAB_ENDPOINT){
+    try{
+      const res = await fetch(COLLAB_ENDPOINT, {
+        method:'POST',
+        headers:{'Accept':'application/json','Content-Type':'application/json'},
+        body: JSON.stringify({name, email, phone, source:'PureMed Zenith site'})
+      });
+      if(!res.ok) throw new Error('Network response was not ok');
+    }catch(err){
+      alert('Something went wrong sending the form. Please try again or email us directly.');
+      btn.disabled = false; btn.textContent = 'Send';
+      return false;
+    }
+  }
+  // Show thank-you state
+  form.classList.add('hidden');
+  document.getElementById('collab-thx').classList.add('op');
+  return false;
+}
 </script>
 
 </body>
